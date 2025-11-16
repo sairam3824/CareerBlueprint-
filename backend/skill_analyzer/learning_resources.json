@@ -1,0 +1,199 @@
+{
+  "Python": {
+    "resources": [
+      {
+        "title": "Python for Everybody (Coursera)",
+        "url": "https://www.coursera.org/specializations/python",
+        "type": "course",
+        "duration": "8 months",
+        "level": "beginner"
+      },
+      {
+        "title": "Python Official Tutorial",
+        "url": "https://docs.python.org/3/tutorial/",
+        "type": "documentation",
+        "duration": "2 weeks",
+        "level": "beginner"
+      }
+    ],
+    "estimated_learning_time": "3-6 months"
+  },
+  "JavaScript": {
+    "resources": [
+      {
+        "title": "freeCodeCamp JavaScript",
+        "url": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/",
+        "type": "interactive",
+        "duration": "300 hours",
+        "level": "beginner"
+      },
+      {
+        "title": "JavaScript.info",
+        "url": "https://javascript.info/",
+        "type": "tutorial",
+        "duration": "4 weeks",
+        "level": "beginner"
+      }
+    ],
+    "estimated_learning_time": "2-4 months"
+  },
+  "React": {
+    "resources": [
+      {
+        "title": "React Official Tutorial",
+        "url": "https://react.dev/learn",
+        "type": "documentation",
+        "duration": "1 week",
+        "level": "intermediate"
+      },
+      {
+        "title": "freeCodeCamp React Course",
+        "url": "https://www.freecodecamp.org/news/react-beginner-handbook/",
+        "type": "tutorial",
+        "duration": "2 weeks",
+        "level": "beginner"
+      }
+    ],
+    "estimated_learning_time": "1-2 months"
+  },
+  "Docker": {
+    "resources": [
+      {
+        "title": "Docker Official Getting Started",
+        "url": "https://docs.docker.com/get-started/",
+        "type": "documentation",
+        "duration": "1 week",
+        "level": "beginner"
+      },
+      {
+        "title": "Docker for Beginners (YouTube)",
+        "url": "https://www.youtube.com/watch?v=fqMOX6JJhGo",
+        "type": "video",
+        "duration": "3 hours",
+        "level": "beginner"
+      }
+    ],
+    "estimated_learning_time": "2-4 weeks"
+  },
+  "SQL": {
+    "resources": [
+      {
+        "title": "SQLBolt Interactive Tutorial",
+        "url": "https://sqlbolt.com/",
+        "type": "interactive",
+        "duration": "2 weeks",
+        "level": "beginner"
+      },
+      {
+        "title": "Khan Academy SQL",
+        "url": "https://www.khanacademy.org/computing/computer-programming/sql",
+        "type": "course",
+        "duration": "3 weeks",
+        "level": "beginner"
+      }
+    ],
+    "estimated_learning_time": "1-2 months"
+  },
+  "AWS": {
+    "resources": [
+      {
+        "title": "AWS Free Tier Hands-On",
+        "url": "https://aws.amazon.com/free/",
+        "type": "hands-on",
+        "duration": "ongoing",
+        "level": "beginner"
+      },
+      {
+        "title": "AWS Cloud Practitioner Essentials",
+        "url": "https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/",
+        "type": "course",
+        "duration": "6 hours",
+        "level": "beginner"
+      }
+    ],
+    "estimated_learning_time": "2-3 months"
+  },
+  "Machine Learning": {
+    "resources": [
+      {
+        "title": "Andrew Ng's Machine Learning (Coursera)",
+        "url": "https://www.coursera.org/learn/machine-learning",
+        "type": "course",
+        "duration": "11 weeks",
+        "level": "beginner"
+      },
+      {
+        "title": "Fast.ai Practical Deep Learning",
+        "url": "https://course.fast.ai/",
+        "type": "course",
+        "duration": "7 weeks",
+        "level": "intermediate"
+      }
+    ],
+    "estimated_learning_time": "4-6 months"
+  },
+  "TypeScript": {
+    "resources": [
+      {
+        "title": "TypeScript Official Handbook",
+        "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+        "type": "documentation",
+        "duration": "1 week",
+        "level": "intermediate"
+      },
+      {
+        "title": "TypeScript Deep Dive",
+        "url": "https://basarat.gitbook.io/typescript/",
+        "type": "book",
+        "duration": "2 weeks",
+        "level": "intermediate"
+      }
+    ],
+    "estimated_learning_time": "1 month"
+  },
+  "Kubernetes": {
+    "resources": [
+      {
+        "title": "Kubernetes Official Tutorial",
+        "url": "https://kubernetes.io/docs/tutorials/",
+        "type": "documentation",
+        "duration": "2 weeks",
+        "level": "intermediate"
+      },
+      {
+        "title": "Kubernetes for Beginners (KodeKloud)",
+        "url": "https://kodekloud.com/courses/kubernetes-for-the-absolute-beginners-hands-on/",
+        "type": "course",
+        "duration": "4 weeks",
+        "level": "beginner"
+      }
+    ],
+    "estimated_learning_time": "2-3 months"
+  },
+  "default": {
+    "resources": [
+      {
+        "title": "Search on freeCodeCamp",
+        "url": "https://www.freecodecamp.org/",
+        "type": "platform",
+        "duration": "varies",
+        "level": "all"
+      },
+      {
+        "title": "Search on Coursera",
+        "url": "https://www.coursera.org/",
+        "type": "platform",
+        "duration": "varies",
+        "level": "all"
+      },
+      {
+        "title": "Search on YouTube",
+        "url": "https://www.youtube.com/",
+        "type": "platform",
+        "duration": "varies",
+        "level": "all"
+      }
+    ],
+    "estimated_learning_time": "varies"
+  }
+}

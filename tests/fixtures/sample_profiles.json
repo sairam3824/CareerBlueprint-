@@ -1,0 +1,37 @@
+{
+  "profiles": [
+    {
+      "email": "john@example.com",
+      "name": "John Doe",
+      "skills": ["Python", "JavaScript", "React", "Docker"],
+      "experience_years": 3,
+      "preferred_locations": ["San Francisco", "Remote"],
+      "preferred_job_types": ["remote", "hybrid"],
+      "salary_min": 80000,
+      "salary_max": 120000,
+      "currency": "USD"
+    },
+    {
+      "email": "jane@example.com",
+      "name": "Jane Smith",
+      "skills": ["Java", "Spring", "Kubernetes", "AWS"],
+      "experience_years": 5,
+      "preferred_locations": ["New York"],
+      "preferred_job_types": ["onsite", "hybrid"],
+      "salary_min": 100000,
+      "salary_max": 150000,
+      "currency": "USD"
+    },
+    {
+      "email": "beginner@example.com",
+      "name": "Alex Johnson",
+      "skills": ["Python", "SQL"],
+      "experience_years": 1,
+      "preferred_locations": ["Remote"],
+      "preferred_job_types": ["remote"],
+      "salary_min": 60000,
+      "salary_max": 80000,
+      "currency": "USD"
+    }
+  ]
+}

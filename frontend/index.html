@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Job Recommendation Bot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h1>🤖 AI Job Recommendation Bot</h1>
+                <p>Find your perfect job match with AI-powered recommendations</p>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        👋 Hi! I'm your AI job assistant. I'll help you find the perfect job based on your skills and experience.
+                        <br><br>
+                        To get started, tell me about your skills. For example: "I know Python, JavaScript, and React"
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <input 
+                    type="text" 
+                    id="chatInput" 
+                    class="chat-input" 
+                    placeholder="Type your message here..."
+                    autocomplete="off"
+                />
+                <button id="sendButton" class="send-button">Send</button>
+            </div>
+        </div>
+        
+        <div class="status-bar">
+            <span id="statusText">⚠️ Backend not connected - Demo mode</span>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

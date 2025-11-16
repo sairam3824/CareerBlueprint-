@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  jobbot:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    env_file:
+      - .env
+    environment:
+      - FLASK_ENV=development
+    restart: unless-stopped

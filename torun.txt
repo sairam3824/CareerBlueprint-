@@ -1,0 +1,11 @@
+terminal 1
+conda activate jobbot
+python app.py
+
+
+terminal 2
+conda activate jobbot
+cd frontend
+python -m http.server 8000
+
+open http://localhost:8000/

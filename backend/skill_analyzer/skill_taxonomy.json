@@ -1,0 +1,240 @@
+{
+  "programming_languages": {
+    "Python": {
+      "synonyms": ["python", "py", "python3", "python2"],
+      "related": ["Django", "Flask", "FastAPI", "Pandas", "NumPy"]
+    },
+    "JavaScript": {
+      "synonyms": ["javascript", "js", "ecmascript", "es6", "es2015"],
+      "related": ["Node.js", "React", "Vue", "Angular", "TypeScript"]
+    },
+    "TypeScript": {
+      "synonyms": ["typescript", "ts"],
+      "related": ["JavaScript", "Node.js", "React", "Angular"]
+    },
+    "Java": {
+      "synonyms": ["java", "jdk", "jre"],
+      "related": ["Spring", "Hibernate", "Maven", "Gradle"]
+    },
+    "C++": {
+      "synonyms": ["c++", "cpp", "cplusplus"],
+      "related": ["C", "STL", "Boost"]
+    },
+    "C#": {
+      "synonyms": ["c#", "csharp", "c sharp"],
+      "related": [".NET", "ASP.NET", "Unity"]
+    },
+    "Go": {
+      "synonyms": ["go", "golang"],
+      "related": ["Docker", "Kubernetes"]
+    },
+    "Rust": {
+      "synonyms": ["rust", "rust-lang"],
+      "related": ["WebAssembly", "Systems Programming"]
+    },
+    "Ruby": {
+      "synonyms": ["ruby", "rb"],
+      "related": ["Rails", "Ruby on Rails", "Sinatra"]
+    },
+    "PHP": {
+      "synonyms": ["php", "php7", "php8"],
+      "related": ["Laravel", "Symfony", "WordPress"]
+    },
+    "Swift": {
+      "synonyms": ["swift", "swift5"],
+      "related": ["iOS", "Xcode", "SwiftUI"]
+    },
+    "Kotlin": {
+      "synonyms": ["kotlin", "kt"],
+      "related": ["Android", "Java", "Spring"]
+    },
+    "R": {
+      "synonyms": ["r", "r-lang"],
+      "related": ["Statistics", "Data Analysis", "ggplot2"]
+    },
+    "SQL": {
+      "synonyms": ["sql", "structured query language"],
+      "related": ["MySQL", "PostgreSQL", "Oracle", "Database"]
+    }
+  },
+  "frameworks": {
+    "React": {
+      "synonyms": ["react", "reactjs", "react.js"],
+      "related": ["JavaScript", "Redux", "Next.js", "JSX"]
+    },
+    "Angular": {
+      "synonyms": ["angular", "angularjs", "angular2+"],
+      "related": ["TypeScript", "RxJS", "NgRx"]
+    },
+    "Vue": {
+      "synonyms": ["vue", "vuejs", "vue.js"],
+      "related": ["JavaScript", "Vuex", "Nuxt.js"]
+    },
+    "Django": {
+      "synonyms": ["django", "django rest framework", "drf"],
+      "related": ["Python", "PostgreSQL", "REST API"]
+    },
+    "Flask": {
+      "synonyms": ["flask", "flask-restful"],
+      "related": ["Python", "REST API", "SQLAlchemy"]
+    },
+    "Spring": {
+      "synonyms": ["spring", "spring boot", "spring framework"],
+      "related": ["Java", "Hibernate", "Maven"]
+    },
+    "Express": {
+      "synonyms": ["express", "expressjs", "express.js"],
+      "related": ["Node.js", "JavaScript", "REST API"]
+    },
+    "Next.js": {
+      "synonyms": ["nextjs", "next.js", "next"],
+      "related": ["React", "JavaScript", "SSR"]
+    },
+    "Laravel": {
+      "synonyms": ["laravel", "laravel framework"],
+      "related": ["PHP", "MySQL", "Eloquent"]
+    },
+    "Ruby on Rails": {
+      "synonyms": ["rails", "ruby on rails", "ror"],
+      "related": ["Ruby", "PostgreSQL", "ActiveRecord"]
+    }
+  },
+  "databases": {
+    "PostgreSQL": {
+      "synonyms": ["postgresql", "postgres", "psql"],
+      "related": ["SQL", "Database", "Relational"]
+    },
+    "MySQL": {
+      "synonyms": ["mysql", "mariadb"],
+      "related": ["SQL", "Database", "Relational"]
+    },
+    "MongoDB": {
+      "synonyms": ["mongodb", "mongo"],
+      "related": ["NoSQL", "Database", "Document Store"]
+    },
+    "Redis": {
+      "synonyms": ["redis", "redis cache"],
+      "related": ["Cache", "In-Memory", "NoSQL"]
+    },
+    "Elasticsearch": {
+      "synonyms": ["elasticsearch", "elastic", "es"],
+      "related": ["Search", "NoSQL", "Analytics"]
+    },
+    "Oracle": {
+      "synonyms": ["oracle", "oracle db", "oracle database"],
+      "related": ["SQL", "Database", "Enterprise"]
+    },
+    "Cassandra": {
+      "synonyms": ["cassandra", "apache cassandra"],
+      "related": ["NoSQL", "Distributed", "Database"]
+    },
+    "DynamoDB": {
+      "synonyms": ["dynamodb", "dynamo"],
+      "related": ["AWS", "NoSQL", "Database"]
+    }
+  },
+  "cloud_platforms": {
+    "AWS": {
+      "synonyms": ["aws", "amazon web services", "amazon aws"],
+      "related": ["EC2", "S3", "Lambda", "Cloud"]
+    },
+    "Azure": {
+      "synonyms": ["azure", "microsoft azure", "ms azure"],
+      "related": ["Cloud", "Microsoft", "DevOps"]
+    },
+    "GCP": {
+      "synonyms": ["gcp", "google cloud", "google cloud platform"],
+      "related": ["Cloud", "Google", "BigQuery"]
+    },
+    "Docker": {
+      "synonyms": ["docker", "containerization"],
+      "related": ["Kubernetes", "DevOps", "Containers"]
+    },
+    "Kubernetes": {
+      "synonyms": ["kubernetes", "k8s", "kube"],
+      "related": ["Docker", "DevOps", "Orchestration"]
+    }
+  },
+  "tools": {
+    "Git": {
+      "synonyms": ["git", "version control", "source control"],
+      "related": ["GitHub", "GitLab", "Bitbucket"]
+    },
+    "Jenkins": {
+      "synonyms": ["jenkins", "jenkins ci"],
+      "related": ["CI/CD", "DevOps", "Automation"]
+    },
+    "Terraform": {
+      "synonyms": ["terraform", "tf"],
+      "related": ["Infrastructure as Code", "DevOps", "Cloud"]
+    },
+    "Ansible": {
+      "synonyms": ["ansible", "ansible automation"],
+      "related": ["DevOps", "Configuration Management", "Automation"]
+    },
+    "Webpack": {
+      "synonyms": ["webpack", "bundler"],
+      "related": ["JavaScript", "Build Tools", "Frontend"]
+    },
+    "Babel": {
+      "synonyms": ["babel", "babeljs"],
+      "related": ["JavaScript", "Transpiler", "ES6"]
+    }
+  },
+  "ml_ai": {
+    "TensorFlow": {
+      "synonyms": ["tensorflow", "tf"],
+      "related": ["Machine Learning", "Deep Learning", "Python"]
+    },
+    "PyTorch": {
+      "synonyms": ["pytorch", "torch"],
+      "related": ["Machine Learning", "Deep Learning", "Python"]
+    },
+    "Scikit-learn": {
+      "synonyms": ["scikit-learn", "sklearn", "scikit learn"],
+      "related": ["Machine Learning", "Python", "Data Science"]
+    },
+    "Keras": {
+      "synonyms": ["keras"],
+      "related": ["Deep Learning", "TensorFlow", "Neural Networks"]
+    },
+    "Pandas": {
+      "synonyms": ["pandas", "pd"],
+      "related": ["Python", "Data Analysis", "Data Science"]
+    },
+    "NumPy": {
+      "synonyms": ["numpy", "np"],
+      "related": ["Python", "Scientific Computing", "Arrays"]
+    },
+    "OpenCV": {
+      "synonyms": ["opencv", "cv2"],
+      "related": ["Computer Vision", "Image Processing", "Python"]
+    }
+  },
+  "soft_skills": {
+    "Communication": {
+      "synonyms": ["communication", "verbal communication", "written communication"],
+      "related": ["Teamwork", "Collaboration", "Presentation"]
+    },
+    "Leadership": {
+      "synonyms": ["leadership", "team lead", "leading teams"],
+      "related": ["Management", "Mentoring", "Decision Making"]
+    },
+    "Problem Solving": {
+      "synonyms": ["problem solving", "analytical thinking", "critical thinking"],
+      "related": ["Analysis", "Debugging", "Troubleshooting"]
+    },
+    "Teamwork": {
+      "synonyms": ["teamwork", "collaboration", "team player"],
+      "related": ["Communication", "Agile", "Scrum"]
+    },
+    "Agile": {
+      "synonyms": ["agile", "agile methodology", "agile development"],
+      "related": ["Scrum", "Kanban", "Sprint"]
+    },
+    "Scrum": {
+      "synonyms": ["scrum", "scrum master", "scrum methodology"],
+      "related": ["Agile", "Sprint", "Backlog"]
+    }
+  }
+}
