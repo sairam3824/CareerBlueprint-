@@ -3,12 +3,15 @@ Email Service Module
 Sends confirmation and digest emails with retry logic
 """
 
+import logging
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from typing import Dict, List, Optional
 from pathlib import Path
 import time
+
+logger = logging.getLogger(__name__)
 
 
 class SendGridClient:
@@ -40,7 +43,7 @@ class SendGridClient:
             return response.status_code in [200, 201, 202]
             
         except Exception as e:
-            print(f"SendGrid send error: {e}")
+            logger.error(f"SendGrid send error: {e}")
             return False
 
 
@@ -74,7 +77,7 @@ class SMTPClient:
             return True
             
         except Exception as e:
-            print(f"SMTP send error: {e}")
+            logger.error(f"SMTP send error: {e}")
             return False
 
 
@@ -325,11 +328,11 @@ class EmailService:
                 if attempt < max_retries:
                     # Exponential backoff
                     wait_time = 2 ** attempt
-                    print(f"Email send failed, retrying in {wait_time}s...")
+                    logger.warning(f"Email send failed, retrying in {wait_time}s...")
                     time.sleep(wait_time)
                     
             except Exception as e:
-                print(f"Email send attempt {attempt + 1} failed: {e}")
+                logger.error(f"Email send attempt {attempt + 1} failed: {e}")
                 if attempt < max_retries:
                     time.sleep(2 ** attempt)
         
