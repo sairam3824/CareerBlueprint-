@@ -3,16 +3,20 @@ Recommendation Engine Module
 Matches user profiles with jobs using semantic similarity and multi-factor scoring
 """
 
+import logging
 import numpy as np
 from typing import List, Dict, Optional
 from sklearn.metrics.pairwise import cosine_similarity
+
+logger = logging.getLogger(__name__)
 
 
 class RecommendationEngine:
     """Generates job recommendations based on user profile"""
     
-    def __init__(self, skill_analyzer):
+    def __init__(self, skill_analyzer, openai_helper=None):
         self.skill_analyzer = skill_analyzer
+        self.openai_helper = openai_helper
         self.weights = {
             "skill_match": 0.5,
             "experience_match": 0.2,
@@ -158,7 +162,7 @@ class RecommendationEngine:
                 # Combine overlap and semantic scores
                 return (overlap_score * 0.6 + semantic_score * 0.4)
         except Exception as e:
-            print(f"Semantic similarity error: {e}")
+            logger.error(f"Semantic similarity error: {e}")
         
         return overlap_score
     
@@ -291,10 +295,19 @@ class RecommendationEngine:
                             job: Dict) -> str:
         """
         Generate human-readable explanation for recommendation
-        
+
         Returns:
             Explanation string
         """
+        # Try GPT-powered explanation first
+        if self.openai_helper:
+            gpt_explanation = self.openai_helper.generate_recommendation_explanation(
+                score, matching_skills, missing_skills, user_profile, job
+            )
+            if gpt_explanation:
+                return gpt_explanation
+
+        # Fall back to template-based explanation
         explanations = []
         
         # Skill match explanation
