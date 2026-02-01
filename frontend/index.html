@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Job Recommendation Bot</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="AI Job Recommendation Bot - Find your perfect career match using advanced AI and semantic skill analysis.">
+    <meta name="theme-color" content="#8b5cf6">
+    <title>AI Job Recommendation Bot | Your Intelligent Career Assistant</title>
+    <link rel="stylesheet" href="/frontend/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="chat-container">
-            <div class="chat-header">
-                <h1>🤖 AI Job Recommendation Bot</h1>
+    <main class="container">
+        <section class="chat-container">
+            <header class="chat-header">
+                <h1>AI Job Recommendation Bot</h1>
                 <p>Find your perfect job match with AI-powered recommendations</p>
-            </div>
+            </header>
             
-            <div class="chat-messages" id="chatMessages">
+            <div class="chat-messages" id="chatMessages" role="log" aria-live="polite">
+                <!-- Initial Bot Message -->
                 <div class="message bot-message">
                     <div class="message-content">
                         👋 Hi! I'm your AI job assistant. I'll help you find the perfect job based on your skills and experience.
@@ -24,23 +27,25 @@
                 </div>
             </div>
             
-            <div class="chat-input-container">
+            <footer class="chat-input-container">
                 <input 
                     type="text" 
                     id="chatInput" 
                     class="chat-input" 
-                    placeholder="Type your message here..."
+                    placeholder="Type your skills or ask something..."
                     autocomplete="off"
+                    aria-label="Chat input"
                 />
-                <button id="sendButton" class="send-button">Send</button>
-            </div>
-        </div>
+                <button id="sendButton" class="send-button" aria-label="Send message">Send</button>
+            </footer>
+        </section>
         
-        <div class="status-bar">
-            <span id="statusText">⚠️ Backend not connected - Demo mode</span>
-        </div>
-    </div>
+        <aside class="status-bar" id="statusBar">
+            <span id="statusText">⚠️ Backend initialization required</span>
+        </aside>
+    </main>
     
-    <script src="app.js"></script>
+    <script src="/frontend/app.js"></script>
 </body>
 </html>
+

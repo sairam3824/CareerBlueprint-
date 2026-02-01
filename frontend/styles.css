@@ -1,4 +1,17 @@
-/* AI Job Recommendation Bot Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap');
+
+:root {
+    --primary: #8b5cf6;
+    --primary-gradient: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+    --bg-gradient: radial-gradient(circle at 0% 0%, #1e1b4b 0%, #0f172a 100%);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --msg-bot: rgba(255, 255, 255, 0.05);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,74 +19,127 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    overflow: hidden;
+}
+
+/* Background animation */
+body::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--primary);
+    filter: blur(150px);
+    border-radius: 50%;
+    z-index: -1;
+    top: 10%;
+    left: 10%;
+    opacity: 0.3;
+    animation: move 20s infinite alternate;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: #ec4899;
+    filter: blur(150px);
+    border-radius: 50%;
+    z-index: -1;
+    bottom: 10%;
+    right: 10%;
+    opacity: 0.2;
+    animation: move 25s infinite alternate-reverse;
+}
+
+@keyframes move {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(100px, 100px);
+    }
 }
 
 .container {
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
+    height: 85vh;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    z-index: 1;
 }
 
 .chat-container {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--glass-shadow);
     display: flex;
     flex-direction: column;
-    height: 600px;
+    height: 100%;
     overflow: hidden;
 }
 
 .chat-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 24px;
+    padding: 30px;
     text-align: center;
+    border-bottom: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .chat-header h1 {
-    font-size: 24px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
     margin-bottom: 8px;
-    font-weight: 600;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
 }
 
 .chat-header p {
     font-size: 14px;
-    opacity: 0.9;
+    color: var(--text-secondary);
 }
 
 .chat-messages {
     flex: 1;
     overflow-y: auto;
-    padding: 20px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    background: #f8f9fa;
+    gap: 20px;
 }
 
 .message {
     display: flex;
-    animation: slideIn 0.3s ease-out;
+    animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes slideIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(20px) scale(0.95);
     }
+
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -86,22 +152,23 @@ body {
 }
 
 .message-content {
-    max-width: 70%;
-    padding: 12px 16px;
-    border-radius: 12px;
-    line-height: 1.5;
+    max-width: 80%;
+    padding: 16px 20px;
+    border-radius: 20px;
+    line-height: 1.6;
     font-size: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .bot-message .message-content {
-    background: white;
-    color: #333;
-    border: 1px solid #e0e0e0;
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
     border-bottom-left-radius: 4px;
 }
 
 .user-message .message-content {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     color: white;
     border-bottom-right-radius: 4px;
 }
@@ -109,40 +176,48 @@ body {
 .chat-input-container {
     display: flex;
     gap: 12px;
-    padding: 20px;
-    background: white;
-    border-top: 1px solid #e0e0e0;
+    padding: 24px 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid var(--glass-border);
 }
 
 .chat-input {
     flex: 1;
-    padding: 12px 16px;
-    border: 2px solid #e0e0e0;
-    border-radius: 24px;
+    padding: 14px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
     font-size: 15px;
+    color: white;
     outline: none;
-    transition: border-color 0.3s;
+    transition: all 0.3s;
+}
+
+.chat-input::placeholder {
+    color: #64748b;
 }
 
 .chat-input:focus {
-    border-color: #667eea;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
 }
 
 .send-button {
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 0 30px;
+    background: var(--primary-gradient);
     color: white;
     border: none;
-    border-radius: 24px;
+    border-radius: 16px;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.3s;
 }
 
 .send-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
 }
 
 .send-button:active {
@@ -150,56 +225,66 @@ body {
 }
 
 .status-bar {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 12px 20px;
-    border-radius: 8px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    padding: 10px 20px;
+    border-radius: 12px;
     text-align: center;
     font-size: 13px;
-    color: #666;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: var(--text-secondary);
 }
 
 .job-card {
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 16px;
-    margin-top: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 15px;
+    transition: all 0.3s;
+}
+
+.job-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-4px);
+    border-color: var(--primary);
 }
 
 .job-card h3 {
-    color: #667eea;
-    margin-bottom: 8px;
+    color: var(--primary);
+    font-family: 'Outfit', sans-serif;
+    margin-bottom: 10px;
     font-size: 18px;
 }
 
 .job-card p {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 14px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .job-card .match-score {
     display: inline-block;
-    background: #667eea;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 12px;
+    background: rgba(139, 92, 246, 0.2);
+    color: var(--primary);
+    padding: 6px 14px;
+    border-radius: 10px;
     font-size: 12px;
     font-weight: 600;
-    margin-top: 8px;
+    margin-top: 12px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .typing-indicator {
     display: flex;
-    gap: 4px;
-    padding: 12px 16px;
+    gap: 6px;
+    padding: 8px 0;
 }
 
 .typing-indicator span {
-    width: 8px;
-    height: 8px;
-    background: #999;
+    width: 6px;
+    height: 6px;
+    background: var(--text-secondary);
     border-radius: 50%;
     animation: typing 1.4s infinite;
 }
@@ -213,44 +298,158 @@ body {
 }
 
 @keyframes typing {
-    0%, 60%, 100% {
+
+    0%,
+    60%,
+    100% {
         transform: translateY(0);
+        opacity: 0.4;
     }
+
     30% {
         transform: translateY(-10px);
+        opacity: 1;
     }
 }
 
-/* Scrollbar styling */
-.chat-messages::-webkit-scrollbar {
-    width: 6px;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
 }
 
-.chat-messages::-webkit-scrollbar-track {
-    background: #f1f1f1;
+::-webkit-scrollbar-track {
+    background: transparent;
 }
 
-.chat-messages::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 3px;
+::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 10px;
 }
 
-.chat-messages::-webkit-scrollbar-thumb:hover {
-    background: #555;
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
 }
 
-/* Mobile responsive */
+/* Apply Button on job cards */
+.job-card .apply-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 12px;
+    margin-left: 8px;
+}
+
+.job-card .apply-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+}
+
+.job-card .apply-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Skill gap cards */
+.skill-gap-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-top: 10px;
+}
+
+.skill-gap-card .skill-name {
+    color: #f59e0b;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.skill-gap-card .impact-high {
+    color: #ef4444;
+}
+
+.skill-gap-card .impact-medium {
+    color: #f59e0b;
+}
+
+.skill-gap-card .impact-low {
+    color: #22c55e;
+}
+
+.skill-gap-card .learning-time {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Application status badges */
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.submitted {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.status-badge.pending {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-badge.failed {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Job card action row */
+.job-card .actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
 @media (max-width: 768px) {
     body {
         padding: 0;
     }
-    
-    .chat-container {
+
+    .container {
         height: 100vh;
-        border-radius: 0;
+        gap: 0;
     }
-    
+
+    .chat-container {
+        border-radius: 0;
+        border: none;
+    }
+
+    .status-bar {
+        border-radius: 0;
+        border: none;
+        border-top: 1px solid var(--glass-border);
+    }
+
     .message-content {
-        max-width: 85%;
+        max-width: 90%;
     }
 }
