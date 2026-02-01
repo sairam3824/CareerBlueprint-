@@ -6,10 +6,13 @@ Fetches jobs from multiple APIs, caches results, and deduplicates
 import requests
 import time
 import json
+import logging
 from typing import List, Dict, Optional
 from datetime import datetime, timedelta
 from pathlib import Path
 import hashlib
+
+logger = logging.getLogger(__name__)
 
 
 class AdzunaClient:
@@ -56,13 +59,13 @@ class AdzunaClient:
             return jobs
             
         except requests.Timeout:
-            print(f"Adzuna API timeout after {self.timeout}s")
+            logger.warning(f"Adzuna API timeout after {self.timeout}s")
             return []
         except requests.RequestException as e:
-            print(f"Adzuna API error: {e}")
+            logger.error(f"Adzuna API error: {e}")
             return []
         except Exception as e:
-            print(f"Unexpected error in Adzuna client: {e}")
+            logger.error(f"Unexpected error in Adzuna client: {e}")
             return []
     
     def _normalize_job(self, raw_job: Dict) -> Dict:
@@ -147,13 +150,13 @@ class JSearchClient:
             return jobs
             
         except requests.Timeout:
-            print(f"JSearch API timeout after {self.timeout}s")
+            logger.warning(f"JSearch API timeout after {self.timeout}s")
             return []
         except requests.RequestException as e:
-            print(f"JSearch API error: {e}")
+            logger.error(f"JSearch API error: {e}")
             return []
         except Exception as e:
-            print(f"Unexpected error in JSearch client: {e}")
+            logger.error(f"Unexpected error in JSearch client: {e}")
             return []
     
     def _normalize_job(self, raw_job: Dict) -> Dict:
@@ -203,7 +206,7 @@ class JobCache:
             return data["jobs"]
             
         except Exception as e:
-            print(f"Cache read error: {e}")
+            logger.error(f"Cache read error: {e}")
             return None
     
     def set(self, key: str, jobs: List[Dict]):
@@ -221,7 +224,7 @@ class JobCache:
                 json.dump(data, f, indent=2)
                 
         except Exception as e:
-            print(f"Cache write error: {e}")
+            logger.error(f"Cache write error: {e}")
     
     def _hash_key(self, key: str) -> str:
         """Generate hash for cache key"""
@@ -263,7 +266,7 @@ class JobFetcher:
         cache_key = f"{query}_{location}_{limit}"
         cached_jobs = self.cache.get(cache_key)
         if cached_jobs:
-            print(f"Returning {len(cached_jobs)} jobs from cache")
+            logger.info(f"Returning {len(cached_jobs)} jobs from cache")
             return cached_jobs
         
         all_jobs = []
@@ -273,18 +276,18 @@ class JobFetcher:
             try:
                 adzuna_jobs = self.adzuna_client.search_jobs(query, "us", limit)
                 all_jobs.extend(adzuna_jobs)
-                print(f"Fetched {len(adzuna_jobs)} jobs from Adzuna")
+                logger.info(f"Fetched {len(adzuna_jobs)} jobs from Adzuna")
             except Exception as e:
-                print(f"Adzuna fetch failed: {e}")
+                logger.error(f"Adzuna fetch failed: {e}")
         
         # Fetch from JSearch
         if self.jsearch_client:
             try:
                 jsearch_jobs = self.jsearch_client.search_jobs(query, location or "United States", limit)
                 all_jobs.extend(jsearch_jobs)
-                print(f"Fetched {len(jsearch_jobs)} jobs from JSearch")
+                logger.info(f"Fetched {len(jsearch_jobs)} jobs from JSearch")
             except Exception as e:
-                print(f"JSearch fetch failed: {e}")
+                logger.error(f"JSearch fetch failed: {e}")
         
         # Deduplicate
         deduplicated = self._deduplicate_jobs(all_jobs)
