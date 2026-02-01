@@ -11,6 +11,7 @@ An intelligent career assistant that leverages machine learning to match job see
 - 📧 **Email Notifications**: Confirmation and weekly digest emails
 - 💬 **Conversational UI**: Natural language skill extraction
 - 🔄 **Skill Gap Analysis**: Identifies missing skills with learning resources
+- 🤖 **Optional GPT Integration**: Enhanced chat responses, skill extraction, and recommendation explanations via OpenAI (falls back gracefully when unconfigured)
 
 ## 🏗️ Architecture
 
@@ -19,6 +20,7 @@ Frontend (React/Vanilla JS) → Flask API → Backend Modules
                                           ├── Skill Analyzer
                                           ├── Job Fetcher
                                           ├── Recommendation Engine
+                                          ├── OpenAI Helper (optional)
                                           ├── Application Tracker
                                           └── Email Service
 ```
@@ -33,6 +35,7 @@ Frontend (React/Vanilla JS) → Flask API → Backend Modules
   - [Adzuna API](https://developer.adzuna.com/) (free tier available)
   - [RapidAPI](https://rapidapi.com/) for JSearch (free tier available)
   - [SendGrid](https://sendgrid.com/) or SMTP credentials (optional)
+  - [OpenAI API](https://platform.openai.com/) key (optional — enables GPT-powered chat, skill extraction, and recommendation explanations)
 
 ### Installation
 
@@ -65,6 +68,7 @@ ADZUNA_APP_ID=your_adzuna_app_id
 ADZUNA_APP_KEY=your_adzuna_app_key
 RAPIDAPI_KEY=your_rapidapi_key
 SENDGRID_API_KEY=your_sendgrid_key  # Optional
+OPENAI_API_KEY=your_openai_api_key  # Optional
 ```
 
 5. **Run the backend server**
@@ -176,6 +180,7 @@ docker run -p 5000:5000 --env-file .env jobbot
 │   ├── skill_analyzer/          # NLP skill extraction & normalization
 │   ├── recommendation_engine/   # AI-powered job matching
 │   ├── job_fetcher/            # Multi-source job aggregation
+│   ├── openai_helper/          # Optional GPT integration
 │   ├── application_tracker/    # Excel/Sheets storage
 │   └── email_service/          # Email notifications
 ├── frontend/
@@ -203,6 +208,7 @@ Edit `config.yaml` to customize:
 - **API endpoints**: Adzuna, JSearch base URLs
 - **Storage**: Excel vs Google Sheets
 - **Email**: SendGrid vs SMTP
+- **OpenAI**: Model, max tokens, temperature (optional)
 - **Cache**: TTL and size limits
 - **Logging**: Level and file path
 
@@ -223,8 +229,14 @@ Edit `config.yaml` to customize:
 ### Recommendation Engine
 - Multi-factor scoring (skills, experience, location, salary)
 - Semantic similarity using embeddings
-- Generates explanations
+- Generates explanations (GPT-enhanced when available, template fallback)
 - Ranks by relevance
+
+### OpenAI Helper (Optional)
+- GPT-powered conversational chat responses
+- Enhanced skill extraction from natural language
+- Personalized recommendation explanations
+- Falls back gracefully when API key is missing or service is unavailable
 
 ### Application Tracker
 - Stores in Excel or Google Sheets
@@ -302,14 +314,11 @@ For questions or support, reach out to [your-email]
 ## 🏆 Competition
 
 Built for the SalesIQ Bot Competition. This bot demonstrates:
-- ✅ AI/ML integration (Sentence Transformers)
+- ✅ AI/ML integration (Sentence Transformers, OpenAI GPT)
 - ✅ Workflow automation (job search → apply → track)
-- ✅ Third-party API integration (Adzuna, JSearch)
+- ✅ Third-party API integration (Adzuna, JSearch, OpenAI)
 - ✅ Data persistence (Excel/Sheets)
 - ✅ Email notifications
 - ✅ Modular, maintainable code
 - ✅ Professional UI/UX
 
----
-
-Made with ❤️ and AI
