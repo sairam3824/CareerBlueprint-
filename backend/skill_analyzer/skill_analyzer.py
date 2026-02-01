@@ -4,10 +4,13 @@ Extracts, normalizes, and analyzes skills from natural language input
 """
 
 import json
+import logging
 import re
 from typing import List, Dict, Optional
 from pathlib import Path
 import numpy as np
+
+logger = logging.getLogger(__name__)
 
 try:
     from sentence_transformers import SentenceTransformer
@@ -174,7 +177,7 @@ class SkillAnalyzer:
             embeddings = model.encode(skills, convert_to_numpy=True)
             return embeddings
         except Exception as e:
-            print(f"Error computing embeddings: {e}")
+            logger.error(f"Error computing embeddings: {e}")
             return None
     
     def assign_proficiency(self, skill: str, experience_years: int, 
